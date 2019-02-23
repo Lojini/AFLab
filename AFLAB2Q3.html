@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab2 - Question 3</title>
+</head>
+<body>
+<script type="text/javascript">
+    //Part 1
+    function fetchUsers(){
+      fetch('https://api.github.com/users').then(function(response) {
+          response.json()
+         console.log(json);
+      })
+        fetchUsers()
+ }
+    //Part 2
+    /* function fetchUsers(){
+        return fetch('https://api.github.com/users').then(response => response.json());
+     }
+     fetchUsers().then(function(json) {
+         console.log(json);
+     });
+  fetchUsers();*/
+</script>
+
+</body>
+</html>

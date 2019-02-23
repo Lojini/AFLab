@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 2</title>
+</head>
+<body>
+   <script type="text/javascript">
+       var vehicleName="Toyota";
+
+      //Part 1
+       function printVehilcleNameOuter(){
+           console.log(this.vehicleName);
+       }
+       console.log(this); //why do we need this?
+       printVehilcleNameOuter();
+
+       //Part 2
+       var vehicle={
+           vehicleName : 'Nissan',
+           vehicleNameInner :printVehilcleNameOuter
+       };
+       vehicle.vehicleNameInner();
+
+       //Part 3
+       var vehicle={
+          vehicleName : 'Benz',
+         vehicleNameInner : function(){ //anonymous function
+             return function(){ //the anonymous function returns another anonymous function
+                 console.log(this.vehicleName);
+               }
+           }
+       };
+       //Part 4
+      var execute=vehicle.vehicleNameInner(); //function call assigned to a variable
+       execute(); //variable has been calles as a function
+       //Part 5
+       execute.call(vehicle); //js built-in function calls the var vehicle together with vehicleNameInner
+       //Part 6
+       var execute=vehicle.vehicleNameInner().bind(vehicle); //similar to call function
+       execute();
+   </script>
+
+</body>
+</html>
